@@ -1,4 +1,4 @@
-# Helath Tracker React App
+# Health Tracker React App
 
 A simple and clean health metrics tracking app built in React, allowing users to input, view and visualize health data like Step Count, Water Intake and Heart Rate.
 
