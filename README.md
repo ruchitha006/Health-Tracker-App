@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Helath Tracker React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and clean health metrics tracking app built in React, allowing users to input, view and visualize health data like Step Count, Water Intake and Heart Rate.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Add new Health metric entires**(Step Count, Water Intake, Heart Rate) with value and auto generated timestamp.
+- **Validate form inputs** for empty, non-numeric, or unrealistic values(custom limits per metric).
+- **Data Persistence** using browser `localStorage` - persists across page reloads.
+- **Health Data Table** with:
+    - Filtering by time of day(Morning, Afternoon, Evening)
+    - Sorting by value (Ascending, Descending)
+    - Edit existing entries inline
+    - Delete entries
+- **Data Visualization** using `Recharts`:
+    - Line chart for selelcted metric data over the last 24 hours
+    - Responsive, clean graph layout
+- **Dark Mode Toggle** for better viewing comfort.
+- **Export Data as CSV** file.
+- Clean, responsive UI built with plain CSS modules(no external CSS frameworks)
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React** (Functional components with Hooks).
+- **Recharts** (for data visualization).
+- **FileSaver.js** (for csv export).
+- **Plain CSS modules** for component-scoped styling.
+- **LocalStorage** for data persistence.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Design Choices & Notes
 
-### `npm test`
+- **Form Validation:** Prevents empty, non-numeric, or impractical values based on reasonable ranges for each metric.
+- **Auto Timestamping:** Each entry gets a timestamp at submission - per typical logging app UX.
+- **Data Persistence:** Implemented using `localStorage` via a `utils/storage.js` helper for clean separation.
+- **Dark Mode:** Simple class-based dark mode toggle affecting the document body.
+- **CSV Export:** Data exported in a clean comma-separated format with headers.
+- **No Modal UI for Form:** Kept the form inline for simplicity and focus per assessment brief - modals were not requested.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the repo
+git clone https://github.com/ruchitha006/Health-Tracker-App.git 
+cd health-tracker-app
+### 2. Install dependencies
+npm install
+### 3. Run the application
+npm start
+Open `http://localhost:3000/` to view it in browser.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

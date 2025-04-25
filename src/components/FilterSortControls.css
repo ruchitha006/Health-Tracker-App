@@ -1,17 +1,17 @@
-.controls-container{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 20px 0;
-    justify-content: center;
-    align-items: center;
+.controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+  justify-content: center;
+  align-items: center;
 }
-.controls-container label{
-    margin-right: 5px;
-    font-weight: bold;
+.controls-container label {
+  margin-right: 5px;
+  font-weight: bold;
 }
-.controls-container select{
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.controls-container select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

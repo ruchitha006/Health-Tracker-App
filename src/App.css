@@ -1,13 +1,13 @@
-.app-container{
+.app-container {
   padding: 20px;
   font-family: Arial, sans-serif;
 }
-.app-title{
+.app-title {
   text-align: center;
   font-size: 32px;
   margin-bottom: 20px;
 }
-.export-btn{
+.export-btn {
   padding: 8px 16px;
   background-color: #28a745;
   color: white;

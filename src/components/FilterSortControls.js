@@ -8,14 +8,14 @@ function FilterSortControls({
     setFilterTime,
     sortOrder,
     setSortOrder
-}){
+}) {
     return (
         <div className='controls-container'>
             {/* Metric Selection */}
             <div>
                 <label>Metric for Chart:</label>
                 <select value={selectedMetric}
-                onChange={(e)=>setSelectedMetric(e.target.value)}>
+                    onChange={(e) => setSelectedMetric(e.target.value)}>
                     <option>Step Count</option>
                     <option>Water Intake</option>
                     <option>Heart Rate</option>
@@ -25,7 +25,7 @@ function FilterSortControls({
             <div>
                 <label>Time Filter:</label>
                 <select value={filterTime}
-                onChange={(e)=>setFilterTime(e.target.value)}>
+                    onChange={(e) => setFilterTime(e.target.value)}>
                     <option value='all'>All</option>
                     <option value='morning'>Morning</option>
                     <option value='afternoon'>Afternoon</option>
@@ -35,7 +35,7 @@ function FilterSortControls({
             {/* Sort Order */}
             <div>
                 <select value={sortOrder}
-                onChange={(e)=>setSortOrder(e.target.value)}>
+                    onChange={(e) => setSortOrder(e.target.value)}>
                     <option value='desc'>High to Low</option>
                     <option value='asc'>Low to High</option>
                 </select>

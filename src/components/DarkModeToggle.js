@@ -1,13 +1,13 @@
 import React from "react";
 import './DarkModeToggle.css';
 
-function DarkModeToggle(){
+function DarkModeToggle() {
     const toggleDarkMode = () => {
         document.body.classList.toggle('dark-mode');
     };
-    return(
+    return (
         <button className="dark-btn" onClick={toggleDarkMode}>
-        Toggle Dark Mode
+            Toggle Dark Mode
         </button>
     );
 }

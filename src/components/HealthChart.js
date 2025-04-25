@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, Tooltip , YAxis} from "recharts";
+import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, Tooltip, YAxis } from "recharts";
 import './HealthChart.css';
 
 function HealthChart({ data, selectedMetric }) {

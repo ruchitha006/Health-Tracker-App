@@ -1,84 +1,84 @@
 import './App.css';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import HealthForm from './components/HealthForm';
 import HealthTable from './components/HealthTable';
 import HealthChart from './components/HealthChart';
 import FilterSortControls from './components/FilterSortControls';
 import DarkModeToggle from './components/DarkModeToggle';
-import { saveData,getData } from './utils/storage';
+import { saveData, getData } from './utils/storage';
 import { saveAs } from 'file-saver';
 
 
 function App() {
-  const [healthData,setHealthData] = useState([]);
-  const [selectedMetric,setSelectedMetric] = useState('Step Count');
-  const [filterTime,setFilterTime] = useState('all');
-  const [sortOrder,setSortOrder] = useState('desc');
+  const [healthData, setHealthData] = useState([]);
+  const [selectedMetric, setSelectedMetric] = useState('Step Count');
+  const [filterTime, setFilterTime] = useState('all');
+  const [sortOrder, setSortOrder] = useState('desc');
 
-  useEffect(()=>{
+  useEffect(() => {
     const storedData = getData();
-    if(storedData){
+    if (storedData) {
       setHealthData(storedData);
     }
-  },[]);
+  }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     saveData(healthData);
-  },[healthData]);
+  }, [healthData]);
 
   const addHealthEntry = (entry) => {
     setHealthData(prev => [entry, ...prev]);
   };
 
-  const deleteEntry = (id) =>{
+  const deleteEntry = (id) => {
     const updated = healthData.filter(item => item.id !== id);
     setHealthData(updated);
   }
 
-  const editEntry = (id,newValue) => {
-    const updated =  healthData.map(item => item.id === id ? {...item,value:newValue} : item);
+  const editEntry = (id, newValue) => {
+    const updated = healthData.map(item => item.id === id ? { ...item, value: newValue } : item);
     setHealthData(updated);
   }
 
   const exportCSV = () => {
     const csvContent = [
-      ['Metric','Value','Time'],
+      ['Metric', 'Value', 'Time'],
       ...healthData.map(item => [
-        item.metric,item.value,new Date(item.timestamp).toLocaleString()
+        item.metric, item.value, new Date(item.timestamp).toLocaleString()
       ])
     ].map(e => e.join(",")).join("/n");
 
-    const blob = new Blob([csvContent], {type: "text/csv;charset=utf-8;"});
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     saveAs(blob, "health-data.csv");
-    };
+  };
 
-  return(
+  return (
     <div className='app-container'>
       <h1 className='app-title'>
-          Health Tracker App
+        Health Tracker App
       </h1>
-      <DarkModeToggle/>
+      <DarkModeToggle />
       <button onClick={exportCSV} className='export-btn'>Export as CSV</button>
-      <HealthForm onAddEntry={addHealthEntry}/>
+      <HealthForm onAddEntry={addHealthEntry} />
       <HealthTable
-      data={healthData}
-      filterTime={filterTime}
-      sortOrder={sortOrder}
-      onDelete={deleteEntry}
-      onEdit={editEntry}
+        data={healthData}
+        filterTime={filterTime}
+        sortOrder={sortOrder}
+        onDelete={deleteEntry}
+        onEdit={editEntry}
       />
       <FilterSortControls
-      selectedMetric={selectedMetric}
-      setSelectedMetric={setSelectedMetric}
-      filterTime={filterTime}
-      setFilterTime={setFilterTime}
-      sortOrder={sortOrder}
-      setSortOrder={setSortOrder}
+        selectedMetric={selectedMetric}
+        setSelectedMetric={setSelectedMetric}
+        filterTime={filterTime}
+        setFilterTime={setFilterTime}
+        sortOrder={sortOrder}
+        setSortOrder={setSortOrder}
       />
       <HealthChart
-      data={healthData}
-      selectedMetric={selectedMetric}
-      /> 
+        data={healthData}
+        selectedMetric={selectedMetric}
+      />
     </div>
   );
 }
