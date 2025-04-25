@@ -37,10 +37,10 @@ A simple and clean health metrics tracking app built in React, allowing users to
 - **No Modal UI for Form:** Kept the form inline for simplicity and focus per assessment brief - modals were not requested.
 
 ## Project Link
-[View On GitHub](https://github.com/ruchitha006/Health-Tracker-App/tree/master)
+[View On GitHub (master branch)](https://github.com/ruchitha006/Health-Tracker-App/tree/master)
 
 ### 1. Clone the repo
-git clone https://github.com/ruchitha006/Health-Tracker-App.git 
+git clone https://github.com/ruchitha006/Health-Tracker-App
 cd health-tracker-app
 ### 2. Install dependencies
 npm install
